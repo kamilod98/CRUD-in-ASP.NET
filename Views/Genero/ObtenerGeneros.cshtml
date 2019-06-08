@@ -1,0 +1,27 @@
+﻿@model Registro.Models.GeneroModel
+@{
+    ViewBag.Title = "Lista de generos";
+}
+
+<h2>Lista de generos</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Abreviacion</th>
+            <th>Nombre del pais</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var elemento in Model.Generos)
+        {
+            <tr>
+                <td>@Html.DisplayFor(p => elemento.Id)</td>
+                <td>@Html.DisplayFor(p => elemento.Nombre)</td>
+                <td>@Html.ActionLink("Editar", "Modificar", "Genero", new { id = elemento.Id }, null)</td>
+                <td>@Html.ActionLink("Eliminar", "Confirmacion", "Genero", new { id = elemento.Id }, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Genero/Index" class="btn btn-success">Agregar genero &raquo;</a>
