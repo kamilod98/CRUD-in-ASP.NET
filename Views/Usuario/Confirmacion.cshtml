@@ -1,0 +1,15 @@
+
+@{
+    ViewBag.Title = "Confirmacion";
+}
+
+<h2>Esta seguro de eliminar el usuario?</h2>
+
+@using (Html.BeginForm("Eliminar", "Usuario", FormMethod.Get))
+{
+    <div>
+        @Html.Hidden("IdEliminar", (string)ViewBag.IdEliminar)
+        <button type="submit" value="Si" class="btn btn-success">Si</button>
+        <button type="button" value="No" class="btn btn-default" onclick="location.href='/Usuario/ObtenerUsuarios'">No</button>
+    </div>
+}
