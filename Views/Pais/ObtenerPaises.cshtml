@@ -1,0 +1,28 @@
+﻿@model Registro.Models.PaisModel
+@{
+    ViewBag.Title = "Lista de paises";
+}
+
+<h2>Lista de paises</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Abreviacion</th>
+            <th>Nombre del pais</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var elemento in Model.Paises)
+        {
+            <tr>
+                <td>@Html.DisplayFor(p => elemento.Id)</td>
+                <td>@Html.DisplayFor(p => elemento.Nombre)</td>
+                <td>@Html.ActionLink("Editar", "Modificar", "Pais", new { id = elemento.Id }, null)</td>
+                <td>@Html.ActionLink("Eliminar", "Confirmacion", "Pais", new { id = elemento.Id }, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Pais/Index" class="btn btn-success">Agregar pais &raquo;</a>
+
