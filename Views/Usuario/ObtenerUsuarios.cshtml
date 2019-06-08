@@ -1,0 +1,32 @@
+﻿@model Registro.Models.UsuarioModel
+@{
+    ViewBag.Title = "Lista de Usuarios";
+}
+
+<h2>Usuarios registrados</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Pais</th>
+            <th>Genero</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var elemento in Model.Usuarios)
+        {
+            <tr>
+                <td>@Html.DisplayFor(p => elemento.Email)</td>
+                <td>@Html.DisplayFor(p => elemento.Nombre)</td>
+                <td>@Html.DisplayFor(p => elemento.Pais)</td>
+                <td>@Html.DisplayFor(p => elemento.Genero)</td>
+                <td>@Html.ActionLink("Editar","Modificar","Usuario",new { id = elemento.Id}, null)</td>
+                <td>@Html.ActionLink("Eliminar","Confirmacion","Usuario",new { id = elemento.Id}, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Usuario/Index" class="btn btn-success">Registrar usuario &raquo;</a>

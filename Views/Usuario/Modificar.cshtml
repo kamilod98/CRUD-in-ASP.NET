@@ -1,0 +1,39 @@
+﻿@model Registro.Models.UsuarioModel
+@{
+    ViewBag.Title = "Modificar usuario";
+}
+
+<h2>Actualiza tus datos</h2>
+
+@using (Html.BeginForm("Modificar", "Usuario", FormMethod.Post))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nombre)
+        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "form-text text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.Email)
+        @Html.TextBoxFor(n => n.Email, new { @class = "form-control", @placeholder = "Ingresa tu nombre aqui" })
+        @Html.ValidationMessageFor(n => n.Email, "", new { @class = "form-text text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pais)
+        @Html.DropDownListFor(m => m.Pais, (IEnumerable<SelectListItem>)ViewBag.Paises, "Selecciona tu pais", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Pais, "", new { @class = "form-text text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Genero)
+        Femenino: @Html.RadioButtonFor(x => x.Genero, "F", false)
+        Masculino: @Html.RadioButtonFor(x => x.Genero, "M", false)
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Guardar cambios</button>
+    </div>
+}
+
